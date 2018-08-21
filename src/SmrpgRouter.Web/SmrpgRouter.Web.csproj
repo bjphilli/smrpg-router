@@ -23,7 +23,7 @@
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.1.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SmrpgRouter.DAL\SmrpgRouter.DAL.csproj" />
-    <ProjectReference Include="..\..\SmrpgRouter.Entities\SmrpgRouter.Entities.csproj" />
+    <ProjectReference Include="..\SmrpgRouter.DAL\SmrpgRouter.DAL.csproj" />
+    <ProjectReference Include="..\SmrpgRouter.Domain\SmrpgRouter.Domain.csproj" />
   </ItemGroup>
 </Project>

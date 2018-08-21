@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using SmrpgRouter.DAL;
-using SmrpgRouter.Entities;
+using SmrpgRouter.Domain;
 
 using Microsoft.AspNetCore.Mvc;
 

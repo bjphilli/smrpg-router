@@ -2,7 +2,7 @@
 using System.Data;
 using System.Linq;
 
-using SmrpgRouter.Entities;
+using SmrpgRouter.Domain;
 
 using Dapper;
 

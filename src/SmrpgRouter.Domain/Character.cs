@@ -1,4 +1,4 @@
-﻿namespace SmrpgRouter.Entities
+﻿namespace SmrpgRouter.Domain
 {
     public class Character
     {

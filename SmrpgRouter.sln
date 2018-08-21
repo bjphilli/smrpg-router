@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26127.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0B12C026-D250-4090-A9F1-67B03A0A1E0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmrpgRouter.Entities", "SmrpgRouter.Entities\SmrpgRouter.Entities.csproj", "{A762E517-42BB-4FF6-B42A-5BF0601B66B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmrpgRouter.Domain", "SmrpgRouter.Entities\SmrpgRouter.Entities.csproj", "{A762E517-42BB-4FF6-B42A-5BF0601B66B1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmrpgRouter.DAL", "SmrpgRouter.DAL\SmrpgRouter.DAL.csproj", "{B1092601-067D-4113-8B9B-20B52EC4E174}"
 EndProject
