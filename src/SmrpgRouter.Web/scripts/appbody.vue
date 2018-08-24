@@ -37,16 +37,16 @@ export default Vue.extend({
 </script>
 
 <style>
-.greeting {
-  font-size: 20px;
-}
+  .greeting {
+    font-size: 20px;
+  }
 
-html {
-  box-sizing: border-box;
-}
+  html {
+    box-sizing: border-box;
+  }
 
-body {
-  margin: 0;
-  padding: 0;
-}
+  body {
+    margin: 0;
+    padding: 0;
+  }
 </style>

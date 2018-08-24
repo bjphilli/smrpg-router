@@ -2,4 +2,6 @@
 
 src/**/bin/*
 src/**/obj/*
+node_modules/
 yarn-error.log
+wwwroot/

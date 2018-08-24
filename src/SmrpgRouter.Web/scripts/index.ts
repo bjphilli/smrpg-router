@@ -1,5 +1,5 @@
 import Vue from "vue";
-import AppBody from "./appbody.vue";
+// import AppBody from "./appbody.vue";
 import TopNav from "./topnav.vue";
 
 let vm = new Vue({
@@ -7,17 +7,17 @@ let vm = new Vue({
     template: `
     <div>
         <top-nav></top-nav/>
-        <app-body
-            name="Blake"
-            initialEnthusiasm=3>
-        </app-body>
+        // <app-body
+        //     name="Blake"
+        //     initialEnthusiasm=3>
+        // </app-body>
     </div>
     `,
     data: {
         name: "World"
     },
     components: {
-        AppBody,
+        // AppBody,
         TopNav
     }
 });
