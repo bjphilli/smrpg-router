@@ -2,3 +2,4 @@
 
 src/**/bin/*
 src/**/obj/*
+yarn-error.log
