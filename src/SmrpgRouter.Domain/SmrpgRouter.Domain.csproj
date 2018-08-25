@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="**\*.resx" />
+    <PackageReference Include="FluentNHibernate" Version="2.1.2" />
   </ItemGroup>
 
 </Project>
