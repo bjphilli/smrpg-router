@@ -2,28 +2,48 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <MvcRazorCompileOnPublish>true</MvcRazorCompileOnPublish>    
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmrpgRouter.DAL\SmrpgRouter.DAL.csproj" />
     <ProjectReference Include="..\SmrpgRouter.Domain\SmrpgRouter.Domain.csproj" />
   </ItemGroup>
+
+    <ItemGroup>
+        <WebpackInputs Include="scripts\**\*" />
+        <WebpackInputs Include="webpack.config.ts" />
+    </ItemGroup>
+    <ItemGroup>
+        <WebpackOutputs Include="wwwroot\assets\**\*" />
+        <WebpackOutputs Include="wwwroot\css\**\*" />
+        <WebpackOutputs Include="wwwroot\js\**\*" />
+    </ItemGroup>
+    <ItemGroup>
+        <MvcRazorFilesToCompile Include="Views\**\*.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'@(WebpackOutputs)' == ''">
+        <!--
+        MSBuild skips a target if the Outputs item group evaluates to empty.
+        On the first build, there won't be any Webpack outputs (and we can't
+        predict what they will be because we don't know the hash results for
+        filenames), so instead we tell MSBuild there's an output file which
+        will never exist, which forces the target to always run on first
+        build.
+        -->
+        <WebpackOutputs Include="wwwroot\nonexistent.dat" />
+    </ItemGroup>
+    <Target Name="BuildClientAssets" BeforeTargets="BeforeBuild;MvcRazorPrecompile" Inputs="@(WebpackInputs)" Outputs="@(WebpackOutputs)">
+        <Exec Command="node_modules\.bin\webpack --progress" />
+    </Target>
+    <Target
+        Name="PrecompileRazorViews"
+        AfterTargets="Build;BuildClientAssets"
+        DependsOnTargets="MvcRazorPrecompile" />  
 </Project>
