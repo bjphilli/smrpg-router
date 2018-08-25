@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using SmrpgRouter.Domain;
-
-using Npgsql;
-using NHibernate;
-using System;
+using SmrpgRouter.Domain.Utils;
 
 namespace SmrpgRouter.DAL
 {
@@ -21,8 +18,7 @@ namespace SmrpgRouter.DAL
 
         public List<Character> GetAll()
         {
-            List<Character> characters =  _unitOfWork.Query<Character>().Where(x => true).ToList();
-            _unitOfWork.Commit();
+            List<Character> characters =  _unitOfWork.Query<Character>().ToList();
             return characters;
         }
 
