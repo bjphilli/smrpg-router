@@ -13,6 +13,14 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    appendTsSuffixTo: [/\.vue$/],
+                }
+            },            
+            {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
@@ -24,14 +32,6 @@ module.exports = {
                         'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
                     }
                     // other vue-loader options go here
-                }
-            },
-            {
-                test: /\.tsx?$/,
-                loader: 'ts-loader',
-                exclude: /node_modules/,
-                options: {
-                    appendTsSuffixTo: [/\.vue$/],
                 }
             },
             {
