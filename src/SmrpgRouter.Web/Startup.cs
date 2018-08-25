@@ -5,6 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+using SmrpgRouter.DAL;
+using SmrpgRouter.Domain.Utils;
+
 namespace SmrpgRouter.Web
 {
     public class Startup
@@ -21,6 +24,13 @@ namespace SmrpgRouter.Web
         {
             // Add framework services.
             services.AddMvc();
+
+            const string connectionString =
+                "Host=localhost;Port=5432;Database=smrpg-router;Username=smrpg-router;Password=smrpg-router";
+
+            services.AddSingleton(new SessionFactory(connectionString));
+            services.AddScoped<UnitOfWork>();
+            services.AddScoped<CharacterRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,7 +46,7 @@ namespace SmrpgRouter.Web
                 {
                     HotModuleReplacement = true,
                     HotModuleReplacementEndpoint = "/__webpack_hmr"
-                });                
+                });
             }
             else
             {

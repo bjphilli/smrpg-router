@@ -10,12 +10,17 @@ namespace SmrpgRouter.Web.Controllers
     [Route("api/characters")]
     public class HeroesController : Controller
     {
+        private readonly CharacterRepository _characterRepository;
+
+        public HeroesController(CharacterRepository characterRepository)
+        {
+            _characterRepository = characterRepository;
+        }
         // GET: api/values
         [HttpGet]
         public IActionResult Get()
         {
-            CharacterRepository repo = new CharacterRepository();
-            List<Character> heroes = repo.GetAll();
+            List<Character> heroes = _characterRepository.GetAll();
 
             return Ok(heroes);
         }

@@ -42,8 +42,5 @@
     <Target Name="BuildClientAssets" BeforeTargets="BeforeBuild;MvcRazorPrecompile" Inputs="@(WebpackInputs)" Outputs="@(WebpackOutputs)">
         <Exec Command="node_modules\.bin\webpack --progress" />
     </Target>
-    <Target
-        Name="PrecompileRazorViews"
-        AfterTargets="Build;BuildClientAssets"
-        DependsOnTargets="MvcRazorPrecompile" />  
+    <Target Name="PrecompileRazorViews" AfterTargets="Build;BuildClientAssets" DependsOnTargets="MvcRazorPrecompile" />  
 </Project>
