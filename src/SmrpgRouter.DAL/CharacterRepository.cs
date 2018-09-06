@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 
 using SmrpgRouter.Domain;
-using SmrpgRouter.Domain.Utils;
 
 namespace SmrpgRouter.DAL
 {
     public class CharacterRepository
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly SmrpgContext _db;
 
-        public CharacterRepository(UnitOfWork unitOfWork) 
+        public CharacterRepository(SmrpgContext db)
         {
-            _unitOfWork = unitOfWork;
+            _db = db;
         }
 
         public List<Character> GetAll()
         {
-            List<Character> characters =  _unitOfWork.Query<Character>().ToList();
-            return characters;
+            return _db.Characters.ToList();
         }
 
         public void Insert(string name)

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using SmrpgRouter.DAL;
-using SmrpgRouter.Domain.Utils;
 
 namespace SmrpgRouter.Web
 {
@@ -28,9 +28,11 @@ namespace SmrpgRouter.Web
             const string connectionString =
                 "Host=localhost;Port=5432;Database=smrpg-router;Username=smrpg-router;Password=smrpg-router";
 
-            services.AddSingleton(new SessionFactory(connectionString));
-            services.AddScoped<UnitOfWork>();
+            services.AddDbContext<SmrpgContext>(options =>
+                options.UseNpgsql(connectionString));
+
             services.AddScoped<CharacterRepository>();
+            services.AddScoped<SmrpgContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

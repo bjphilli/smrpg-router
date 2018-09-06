@@ -1,13 +1,17 @@
-using FluentNHibernate.Mapping;
+
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace SmrpgRouter.Domain
 {
-    public class CharacterMap : ClassMap<Character>
+    public class CharacterMap : IEntityTypeConfiguration<Character>
     {
-        public CharacterMap()
+        public void Configure(EntityTypeBuilder<Character> builder)
         {
-            Id(x => x.Id).Column("id");
-            Map(x => x.Name).Column("name");
+            builder.ToTable("character");
+            builder.HasKey(c => c.Id);
+            builder.Property(c => c.Id).HasColumnName("id");
+            builder.Property(c => c.Name).HasColumnName("name");
         }
     }
 }

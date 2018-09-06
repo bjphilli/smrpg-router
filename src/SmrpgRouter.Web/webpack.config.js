@@ -19,7 +19,7 @@ module.exports = {
                 options: {
                     appendTsSuffixTo: [/\.vue$/],
                 }
-            },            
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
