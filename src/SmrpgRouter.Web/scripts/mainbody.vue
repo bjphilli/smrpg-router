@@ -10,14 +10,14 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data() {
-  },
-  methods: {
-  },
-  computed: {
-  },
-  components: {
-  }
+    data() {
+    },
+    methods: {
+    },
+    computed: {
+    },
+    components: {
+    }
 });
 </script>
 

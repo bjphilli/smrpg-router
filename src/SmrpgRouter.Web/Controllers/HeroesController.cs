@@ -16,7 +16,7 @@ namespace SmrpgRouter.Web.Controllers
         {
             _characterRepository = characterRepository;
         }
-        
+
         // GET: api/values
         [HttpGet]
         public IActionResult Get()
