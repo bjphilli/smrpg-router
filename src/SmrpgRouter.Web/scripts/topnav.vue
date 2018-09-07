@@ -10,15 +10,15 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  props: ["name", "initialEnthusiasm"],
-  data() {
-  },
-  methods: {
-  },
-  computed: {
-  },
-  components: {
-  }
+    props: ["name", "initialEnthusiasm"],
+    data() {
+    },
+    methods: {
+    },
+    computed: {
+    },
+    components: {
+    }
 });
 </script>
 
