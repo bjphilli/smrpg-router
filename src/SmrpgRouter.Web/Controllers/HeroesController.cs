@@ -21,6 +21,15 @@ namespace SmrpgRouter.Web.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            // List<Character> heroes = new List<Character>
+            // {
+            //     new Character
+            //     {
+            //         Name = "Mario",
+            //         Id = 5
+            //     }
+            // };
+
             List<Character> heroes = _characterRepository.GetAll();
 
             return Ok(heroes);
