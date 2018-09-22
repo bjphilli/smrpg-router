@@ -6,9 +6,6 @@
         <EmbeddedResource Include="**\*.resx" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.0.0" />
-    </ItemGroup>
-    <ItemGroup>
         <ProjectReference Include="..\SmrpgRouter.Domain\SmrpgRouter.Domain.csproj" />
     </ItemGroup>
 </Project>
