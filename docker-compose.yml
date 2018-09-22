@@ -2,30 +2,35 @@ version: '2'
 
 services:
 
-  web:
-    container_name: 'smrpgrouter'
-    image: 'smrpgrouter'
-    build:
-      context: .
-      dockerfile: SmrpgRouter.Debug.Dockerfile
-    volumes:
-      - .:/var/www/aspnetcoreapp
-    ports:
-     - "5000:5000"
-    depends_on:
-     - "postgres"
-    networks:
-      - smrpgrouter-network
+    web:
+        container_name: 'smrpgrouter'
+        image: 'smrpgrouter'
+        build:
+            context: .
+            dockerfile: SmrpgRouter.Debug.Dockerfile
+        volumes:
+            - .:/var/www/aspnetcoreapp
+        ports:
+            - "5000:5000"
+        depends_on:
+            - "postgres"
+        networks:
+            - smrpgrouter-network
 
-  postgres:
-    container_name: 'smrpgrouter-db'
-    image: postgres
-    environment:
-      POSTGRES_USER: smrpg-router
-      POSTGRES_PASSWORD: smrpg-router
-    networks:
-      - smrpgrouter-network
+    postgres:
+        container_name: 'smrpgrouter-db'
+        image: postgres
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_USER: "smrpgRouter"
+            POSTGRES_PASSWORD: "smrpgRouter"
+            POSTGRES_DB: "smrpgRouter"
+        networks:
+            - smrpgrouter-network
+        volumes:
+            - .:/var/lib/postgresql
 
 networks:
-  smrpgrouter-network:
-    driver: bridge
+    smrpgrouter-network:
+        driver: bridge

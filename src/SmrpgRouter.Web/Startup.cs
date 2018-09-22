@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using SmrpgRouter.DAL;
+using SmrpgRouter.Domain;
 
 namespace SmrpgRouter.Web
 {
@@ -26,13 +27,12 @@ namespace SmrpgRouter.Web
             services.AddMvc();
 
             const string connectionString =
-                "Host=localhost;Port=5432;Database=smrpg-router;Username=smrpg-router;Password=smrpg-router";
+                "Host=postgres;Port=5432;Database=smrpgRouter;Username=smrpgRouter;Password=smrpgRouter";
 
-            services.AddDbContext<SmrpgContext>(options =>
-                options.UseNpgsql(connectionString));
+            services.AddDbContext<SmrpgContext>(o =>
+                o.UseNpgsql(connectionString, b => b.MigrationsAssembly("SmrpgRouter.Domain")));
 
-            services.AddScoped<CharacterRepository>();
-            services.AddScoped<SmrpgContext>();
+            services.BootstrapDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +63,20 @@ namespace SmrpgRouter.Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.RunMigrations();
+        }
+    }
+
+    public static class IApplicationBuilderExtensions
+    {
+        public static void RunMigrations(this IApplicationBuilder app)
+        {
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            using (var context = serviceScope.ServiceProvider.GetService<SmrpgContext>())
+            {
+                context.Database.Migrate();
+            }
         }
     }
 }
