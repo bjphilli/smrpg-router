@@ -12,7 +12,7 @@
 import Vue from 'vue';
 import TopNav from './topnav.vue';
 import MainBody from './mainbody.vue';
-import BottomNav from './bottomnav.vue';;;;
+import BottomNav from './bottomnav.vue';
 
 export default Vue.extend({
     props: ["name", "initialEnthusiasm"],
