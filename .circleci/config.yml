@@ -9,4 +9,4 @@
 
      steps:
        - checkout
-       - run: dotnet build -warnaserror src/SmrpgRouter.sln
+       - run: dotnet build src/SmrpgRouter.sln
