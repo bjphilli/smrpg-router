@@ -9,4 +9,4 @@
 
      steps:
        - checkout
-       - run: dotnet build src/SmrpgRouter.sln
+       - run: dotnet build -warnAsError src/SmrpgRouter.sln
