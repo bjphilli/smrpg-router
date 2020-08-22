@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using SmrpgRouter.DAL;
 using SmrpgRouter.Domain;
 
-namespace SmrpgRouter.Web
+namespace SmrpgRouter.Api
 {
     public class Startup
     {

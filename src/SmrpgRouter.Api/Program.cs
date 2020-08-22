@@ -4,7 +4,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 
-namespace SmrpgRouter.Web
+namespace SmrpgRouter.Api
 {
     public class Program
     {

@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SmrpgRouter.DAL;
 using SmrpgRouter.Domain;
 
-namespace SmrpgRouter.Web
+namespace SmrpgRouter.Api
 {
     public static class IServiceCollectionExtensions
     {
