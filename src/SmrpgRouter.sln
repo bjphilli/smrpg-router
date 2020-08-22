@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmrpgRouter.Domain", "Smrpg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmrpgRouter.DAL", "SmrpgRouter.DAL\SmrpgRouter.DAL.csproj", "{B1092601-067D-4113-8B9B-20B52EC4E174}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmrpgRouter.Web", "SmrpgRouter.Web\SmrpgRouter.Web.csproj", "{4BAF7C66-5A5D-4604-BB18-88B2722ACF8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmrpgRouter.Api", "SmrpgRouter.Api\SmrpgRouter.Api.csproj", "{4BAF7C66-5A5D-4604-BB18-88B2722ACF8A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F0FBFA3F-BDD4-4E36-8454-C933AEAA0EE2}"
 EndProject
